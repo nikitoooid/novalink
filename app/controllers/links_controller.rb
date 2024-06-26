@@ -34,7 +34,7 @@ class LinksController < ApplicationController
   def redirect
     @link = Link.find_by(slug: params[:slug])
     if @link
-      redirect_to @link.url
+      redirect_to @link.url, allow_other_host: true
     else
       redirect_to root_path, alert: 'Link not found.'
     end
