@@ -2,6 +2,10 @@ class LinksController < ApplicationController
   before_action :authenticate_user!, except: [:redirect]
   before_action :set_link, only: [:edit, :update, :destroy]
 
+  def index
+    @links = Link.all
+  end
+
   def new
     @link = Link.new
   end
