@@ -6,6 +6,8 @@ set :repo_url, "git@github.com:nikitoooid/novalink.git"
 
 set :deploy_to, "/home/deploy/#{fetch :application}"
 
+set :branch, 'main'
+
 set :rbenv_type, :user
 set :rbenv_ruby, '2.7.2'
 
