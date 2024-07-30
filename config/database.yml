@@ -80,7 +80,16 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
+  # <<: *default
+  # database: novalink_production
+  # pool: 5
+  # username: novalink_user
+  # password: password
+  # password: <%= ENV["NOVALINK_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
   database: novalink_production
-  username: novalink
-  password: <%= ENV["NOVALINK_DATABASE_PASSWORD"] %>
+  pool: 5
+  username: deploy
+  password: whatafuck
+  host: localhost
