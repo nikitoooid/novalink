@@ -8,9 +8,7 @@ nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark
       ul class="navbar-nav me-auto mb-2 mb-lg-0"
         - if user_signed_in?
           li class="nav-item me-2"
-            = link_to 'Усі посилання', root_path, class: 'nav-link'
-          li class="nav-item me-2"
-            = link_to 'Мої посилання', links_path, class: 'nav-link'
+            = link_to 'Посилання', links_path, class: 'nav-link'
           li class="nav-item me-2"
             = link_to 'Створити посилання', new_link_path, class: 'nav-link'
         
@@ -20,5 +18,5 @@ nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark
             = current_user.email
           = link_to 'Вийти', destroy_user_session_path, class: 'btn btn-outline-secondary', data: { turbo_method: :delete }
         - else
-          = link_to 'Вхід', new_user_session_path, class: 'btn btn-outline-secondary'
+          = link_to 'Вхід', new_user_session_path, class: 'btn btn-outline-secondary me-2'
           = link_to 'Реєстрація', new_user_registration_path, class: 'btn btn-primary'

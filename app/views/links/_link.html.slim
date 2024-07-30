@@ -1,7 +1,11 @@
-.link
-  span
-    = link.title
-  span
-    = link.slug
-  span
-    = link.url
+li class="list-group-item"
+  div class="d-flex justify-content-between"
+    div
+      span class="me-3" = link.title
+      span class="me-3 text-secondary" = link.slug
+      span class="text-secondary" = link.url
+    div
+      = link_to 'Редагувати', edit_link_path(link), class: 'btn btn-sm btn-outline-secondary me-2'
+      = link_to 'Видалити', link_path(link), class: 'btn btn-sm btn-outline-danger', data: { turbo_method: :delete }
+
+  

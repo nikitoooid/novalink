@@ -13,7 +13,7 @@ class LinksController < ApplicationController
   def create
     @link = current_user.links.build(link_params)
     if @link.save
-      redirect_to root_path, notice: 'Link was successfully created.'
+      redirect_to links_path, notice: 'Link was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class LinksController < ApplicationController
 
   def update
     if @link.update(link_params)
-      redirect_to root_path, notice: 'Link was successfully updated.'
+      redirect_to links_path, notice: 'Link was successfully updated.'
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class LinksController < ApplicationController
 
   def destroy
     @link.destroy
-    redirect_to root_path, notice: 'Link was successfully deleted.'
+    redirect_to links_path, notice: 'Link was successfully deleted.'
   end
 
   def redirect
