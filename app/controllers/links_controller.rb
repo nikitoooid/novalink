@@ -13,7 +13,7 @@ class LinksController < ApplicationController
   def create
     @link = current_user.links.build(link_params)
     if @link.save
-      redirect_to links_path, notice: 'Link was successfully created.'
+      redirect_to links_path, notice: 'Посилання успішно створене.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class LinksController < ApplicationController
 
   def update
     if @link.update(link_params)
-      redirect_to links_path, notice: 'Link was successfully updated.'
+      redirect_to links_path, notice: 'Посилання успішно оновлене.'
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class LinksController < ApplicationController
 
   def destroy
     @link.destroy
-    redirect_to links_path, notice: 'Link was successfully deleted.'
+    redirect_to links_path, notice: 'Посилання успішно видалене.'
   end
 
   def redirect
@@ -40,7 +40,7 @@ class LinksController < ApplicationController
     if @link
       redirect_to @link.url, allow_other_host: true
     else
-      redirect_to root_path, alert: 'Link not found.'
+      redirect_to root_path, notice: 'Посилання не знайдено.'
     end
   end
 
