@@ -15,3 +15,15 @@ append :linked_files, 'config/database.yml', 'config/master.key'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
 
 set :keep_releases, 5
+
+namespace :deploy do
+  desc 'Ensure the current directory is a symlink'
+  task :ensure_symlink do
+    on roles(:app) do
+      execute :rm, '-rf', release_path.join('current')
+      execute :ln, '-s', release_path, release_path.join('current')
+    end
+  end
+end
+
+after 'deploy:symlink:release', 'deploy:ensure_symlink'
