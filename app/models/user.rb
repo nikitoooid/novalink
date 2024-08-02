@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :links
+
+  def is_author_of?(link)
+    link.user_id == self.id
+  end
 end
