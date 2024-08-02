@@ -7,6 +7,7 @@ li class="list-group-item"
         = "http://link.novaform.tech/#{link.slug}"
       div class="col-md-4 col-sm-6 text-secondary text-truncate mb-2"
         = link.url
-      div class="col-md-3 col-sm-12"
-        = link_to 'Редагувати', edit_link_path(link), class: 'btn btn-sm btn-outline-secondary me-2'
-        = link_to 'Видалити', link_path(link), class: 'btn btn-sm btn-outline-danger', data: { turbo_method: :delete }
+      - if current_user.is_author_of? link
+        div class="col-md-3 col-sm-12"
+          = link_to 'Редагувати', edit_link_path(link), class: 'btn btn-sm btn-outline-secondary me-2'
+          = link_to 'Видалити', link_path(link), class: 'btn btn-sm btn-outline-danger', data: { turbo_method: :delete }
