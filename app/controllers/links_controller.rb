@@ -3,7 +3,7 @@ class LinksController < ApplicationController
   before_action :set_link, only: [:edit, :update, :destroy]
 
   def index
-    @links = Link.all
+    @links = Link.all.order('created_at DESC')
   end
 
   def new
