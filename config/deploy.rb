@@ -12,7 +12,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.7.2'
 
 append :linked_files, 'config/database.yml', 'config/master.key'
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
 set :keep_releases, 5
 
